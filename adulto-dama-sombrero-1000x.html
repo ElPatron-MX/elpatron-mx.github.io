@@ -2,60 +2,333 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Catálogo | Sombrerería El Patrón</title>
+  <title>Caballero – Sombreros 1000X</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Tipografía ranchera -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Stardos+Stencil&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Stardos Stencil', serif;
+      background-color: #fdfaf4;
+      color: #4b2e1e;
+    }
+
+    /* Header con banner */
+    header {
+      text-align: center;
+      background-color: #d9c3a2;
+      padding: 20px;
+      border-bottom: 3px solid #a0834e;
+    }
+
+    header img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      margin: 10px 0 5px 0;
+      font-size: 2.5em;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin: 0;
+    }
+
+    /* Menú hamburguesa */
+    .menu-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1001;
+      background-color: #4b2e1e;
+      border: none;
+      color: white;
+      font-size: 30px;
+      padding: 5px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -260px;
+      width: 240px;
+      height: 100%;
+      background-color: #e8d5b7;
+      padding: 20px;
+      overflow-y: auto;
+      transition: 0.3s;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+
+    .sidebar.show {
+      left: 0;
+    }
+
+    .sidebar h2 {
+      font-size: 1.5em;
+      margin-bottom: 15px;
+    }
+
+    .sidebar details summary {
+      cursor: pointer;
+      font-size: 1.2em;
+      padding: 8px;
+      background-color: #f2e6d8;
+      border: 1px solid #c8b28f;
+      border-radius: 5px;
+      margin-top: 5px;
+    }
+
+    .sidebar a {
+      display: block;
+      padding-left: 20px;
+      color: #5a3a22;
+      text-decoration: none;
+      margin: 5px 0;
+    }
+
+    .sidebar a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #d9c3a2;
+      padding: 20px;
+      text-align: center;
+      border-top: 3px solid #a0834e;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: #4b2e1e;
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 1.1em;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Botones flotantes estilo burbuja */
+    .floating-button {
+      position: fixed;
+      bottom: 20px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #25D366;
+      color: white;
+      font-size: 24px;
+      text-align: center;
+      line-height: 50px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      z-index: 999;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .floating-button.whatsapp {
+      right: 20px;
+      background-color: #25D366;
+    }
+
+    .floating-button.ubicacion {
+      right: 80px;
+      background-color: #0077b5;
+    }
+
+    /* Estilo para secciones de productos */
+    section {
+      text-align: center;
+      padding: 40px 20px;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    section img {
+      width: 100%;
+      max-width: 350px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-bottom: 15px;
+    }
+
+    section h2 {
+      font-size: 1.8em;
+      margin-bottom: 10px;
+    }
+
+    section p {
+      font-size: 1.1em;
+      margin-bottom: 15px;
+      padding: 0 10px;
+    }
+
+    section button {
+      font-family: 'Stardos Stencil', serif;
+      font-size: 1em;
+      padding: 10px 20px;
+      background-color: #4b2e1e;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    section button:hover {
+      background-color: #6b3f28;
+    }
+  </style>
 </head>
 <body>
 
-  <h1>Catálogo Sombrerería El Patrón</h1>
-  <p>Lema: <strong>Clase, Rancho y Carácter.</strong></p>
+  <!-- Botón del menú -->
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
-  <h2>Adulto</h2>
+  <!-- Menú lateral -->
+  <nav class="sidebar" id="sidebarMenu">
+    <h2>&nbsp;</h2>
+    <h2>Catálogo</h2>
+    <a href="index.html" style="display:block; margin-bottom:15px; font-size: 1.1em; color:#4b2e1e; text-decoration:none;">🏠 Inicio</a>
+    <details>
+      <summary>Caballero</summary>
+      <ul>
+        <li>
+          <details>
+            <summary>Sombrero</summary>
+            <ul>
+              <li><a href="adulto-caballero-sombrero-lona.html">Lona</a></li>
+              <li><a href="adulto-caballero-sombrero-100x.html">100X</a></li>
+              <li><a href="adulto-caballero-sombrero-1000x.html">1000X</a></li>
+              <li><a href="adulto-caballero-sombrero-modelaje.html">Modelaje</a></li>
+            </ul>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary>Texana</summary>
+            <ul>
+              <li><a href="adulto-caballero-texana-fieltro.html">Fieltro</a></li>
+              <li><a href="adulto-caballero-texana-lana.html">Lana</a></li>
+              <li><a href="adulto-caballero-texana-pelo.html">Pelo</a></li>
+            </ul>
+          </details>
+        </li>
+      </ul>
+    </details>
+    <details>
+      <summary>Dama</summary>
+      <ul>
+        <li>
+          <details>
+            <summary>Sombrero</summary>
+            <ul>
+              <li><a href="adulto-dama-sombrero-lona.html">Lona</a></li>
+              <li><a href="adulto-dama-sombrero-100x.html">100X</a></li>
+              <li><a href="adulto-dama-sombrero-1000x.html">1000X</a></li>
+              <li><a href="adulto-dama-sombrero-modelaje.html">Modelaje</a></li>
+            </ul>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary>Texana</summary>
+            <ul>
+              <li><a href="adulto-dama-texana-fieltro.html">Fieltro</a></li>
+              <li><a href="adulto-dama-texana-lana.html">Lana</a></li>
+              <li><a href="adulto-dama-texana-pelo.html">Pelo</a></li>
+            </ul>
+          </details>
+        </li>
+      </ul>
+    </details>
+    <details>
+      <summary>Niño</summary>
+      <ul>
+        <li><a href="nino-sombrero.html">Sombrero</a></li>
+        <li><a href="nino-texana.html">Texana</a></li>
+      </ul>
+    </details>
+  </nav>
 
-  <h3>Caballero</h3>
+  <!-- Encabezado -->
+  <header>
+    <img src="img/banner.png" alt="Banner de Sombrerería El Patrón">
+    <h1>Sombreros 1000X – Caballero</h1>
+    <p>Calidad superior para quien impone carácter.</p>
+  </header>
 
-  <details>
-    <summary>Sombrero</summary>
-    <ul>
-      <li><a href="adulto-caballero-sombrero-lona.html">Lona</a></li>
-      <li><a href="adulto-caballero-sombrero-100x.html">100X</a></li>
-      <li><a href="adulto-caballero-sombrero-1000x.html">1000X</a></li>
-    </ul>
-  </details>
+  <!-- Contenido -->
+  <main>
+    <section>
+      <h2>Tombstone 1000X Chaparral</h2>
+      <img src="img/chaparral.jpg" alt="Chaparral">
+      <p>Sombrero de copa media y ala ancha con telar master 1x1. Elegante, ventilado, con pluma de adorno.</p>
+      <a href="https://articulo.mercadolibre.com.mx/MLM-XXXXXX-chaparral-1000x" target="_blank"><button>Comprar en Mercado Libre</button></a>
+    </section>
 
-  <details>
-    <summary>Texana</summary>
-    <ul>
-      <li><a href="adulto-caballero-texana-fieltro.html">Fieltro</a></li>
-      <li><a href="adulto-caballero-texana-lana.html">Lana</a></li>
-      <li><a href="adulto-caballero-texana-pelo.html">Pelo</a></li>
-    </ul>
-  </details>
+    <section>
+      <h2>Tombstone 1000X El Viejón</h2>
+      <img src="img/viejon.jpg" alt="El Viejón">
+      <p>Diseño clásico con copa media, ala definida y calidad master 1x1. Tradición y estilo.</p>
+      <a href="https://articulo.mercadolibre.com.mx/MLM-XXXXXX-viejón-1000x" target="_blank"><button>Comprar en Mercado Libre</button></a>
+    </section>
 
-  <h3>Dama</h3>
+    <section>
+      <h2>Tombstone 1000X Denver</h2>
+      <img src="img/denver.jpg" alt="Denver">
+      <p>Hecho a mano en México. Ala corta, copa baja y estilo urbano con resistencia.</p>
+      <a href="https://articulo.mercadolibre.com.mx/MLM-XXXXXX-denver-1000x" target="_blank"><button>Comprar en Mercado Libre</button></a>
+    </section>
 
-  <details>
-    <summary>Sombrero</summary>
-    <ul>
-      <li><a href="adulto-dama-sombrero-lona.html">Lona</a></li>
-      <li><a href="adulto-dama-sombrero-100x.html">100X</a></li>
-      <li><a href="adulto-dama-sombrero-1000x.html">1000X</a></li>
-    </ul>
-  </details>
+    <section>
+      <h2>Tombstone 1000X Este-Oeste</h2>
+      <img src="img/esteoeste.jpg" alt="Este-Oeste">
+      <p>Diseño versátil con ala mediana. Ideal para atuendos rancheros o de ciudad.</p>
+      <a href="https://articulo.mercadolibre.com.mx/MLM-XXXXXX-esteoeste-1000x" target="_blank"><button>Comprar en Mercado Libre</button></a>
+    </section>
 
-  <details>
-    <summary>Texana</summary>
-    <ul>
-      <li><a href="adulto-dama-texana-fieltro.html">Fieltro</a></li>
-      <li><a href="adulto-dama-texana-lana.html">Lana</a></li>
-      <li><a href="adulto-dama-texana-pelo.html">Pelo</a></li>
-    </ul>
-  </details>
+    <section>
+      <h2>Tombstone 1000X Roper</h2>
+      <img src="img/roper.jpg" alt="Roper">
+      <p>Ala moderada, copa cómoda y estructura robusta para cabalgatas o uso rudo con elegancia.</p>
+      <a href="https://articulo.mercadolibre.com.mx/MLM-XXXXXX-roper-1000x" target="_blank"><button>Comprar en Mercado Libre</button></a>
+    </section>
+  </main>
 
-  <h2>Niño</h2>
-  <ul>
-    <li><a href="nino-sombrero.html">Sombrero</a></li>
-    <li><a href="nino-texana.html">Texana</a></li>
-  </ul>
+  <!-- Botones flotantes -->
+  <a class="floating-button whatsapp" href="https://wa.me/527226813895" target="_blank" title="Enviar mensaje por WhatsApp">💬</a>
+  <a class="floating-button ubicacion" href="https://www.google.com.mx/maps/place/Sombrerer%C3%ADa+El+Patr%C3%B3n" target="_blank" title="Ver ubicación">📍</a>
 
+  <!-- Pie de página -->
+  <footer>
+    <p>Contacto:</p>
+    <a href="https://wa.me/527226813895" target="_blank">WhatsApp: 722 681 3895</a> |
+    <a href="https://www.google.com.mx/maps/place/Sombrerer%C3%ADa+El+Patr%C3%B3n" target="_blank">Ubicación de la tienda</a>
+    <p style="margin-top: 10px;">© 2025 Sombrerería El Patrón. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Script del menú -->
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('sidebarMenu');
+      menu.classList.toggle('show');
+    }
+  </script>
 </body>
 </html>
