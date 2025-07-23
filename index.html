@@ -114,12 +114,49 @@
       font-size: 0.9em;
       color: #3c2b1b;
     }
+
+    /* Botones flotantes */
+    .floating-buttons {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 999;
+    }
+
+    .floating-buttons a {
+      background-color: #25d366;
+      color: white;
+      padding: 12px 16px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .floating-buttons a:hover {
+      background-color: #128c7e;
+    }
+
+    .floating-buttons a.location {
+      background-color: #0077cc;
+    }
+
+    .floating-buttons a.location:hover {
+      background-color: #005fa3;
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <img src="img/banner.png" alt="Banner de Sombrerería El Patrón">
+    <img src="img/banner.jpg" alt="Banner de Sombrerería El Patrón">
     <h1>Sombrerería El Patrón</h1>
     <p>Clase, Rancho y Carácter.</p>
   </header>
@@ -222,10 +259,16 @@
   </main>
 
   <footer>
-    <a class="contact-button" href="https://wa.me/527226813895" target="_blank">📲 WhatsApp</a>
-    <a class="contact-button" href="https://maps.app.goo.gl/SNQEgjhJQJyygmN57" target="_blank">📍 Ubicación</a>
+    <a class="contact-button" href="https://wa.me/522726813895" target="_blank">📲 WhatsApp</a>
+    <a class="contact-button" href="https://www.google.com.mx/maps/place/Sombrerer%C3%ADa+El+Patr%C3%B3n/@18.9602815,-99.5917571,20.92z/data=!4m6!3m5!1s0x85cd954a67d611e3:0x1b9388a5ac9bdb8e!8m2!3d18.9603913!4d-99.5917096!16s%2Fg%2F11w581p3db?entry=ttu" target="_blank">📍 Ubicación</a>
     <div class="rights">© Todos los derechos reservados de Sombrerería El Patrón</div>
   </footer>
+
+  <!-- Botones flotantes -->
+  <div class="floating-buttons">
+    <a class="location" href="https://www.google.com.mx/maps/place/Sombrerer%C3%ADa+El+Patr%C3%B3n/@18.9602815,-99.5917571,20.92z/data=!4m6!3m5!1s0x85cd954a67d611e3:0x1b9388a5ac9bdb8e!8m2!3d18.9603913!4d-99.5917096!16s%2Fg%2F11w581p3db?entry=ttu" target="_blank">📍 Ubicación</a>
+    <a href="https://wa.me/522726813895" target="_blank">💬 WhatsApp</a>
+  </div>
 
 </body>
 </html>
